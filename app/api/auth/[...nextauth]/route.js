@@ -29,24 +29,38 @@ const handler = NextAuth({
         },
       async authorize (credentials) {
         let id;
+        let isSubscribed = false
         const usersResponse = await fetch('http://localhost:3000/api/users')
         const usersData = await usersResponse.json()
         
         usersData.forEach(element => {
             if (element.username === credentials.username && element.password === credentials.password) {
                 id = element._id
+                isSubscribed = true
                 return
             }
         })
-
-        
-        const userResponse = await fetch(`http://localhost:3000/api/users/${id}`)
-        const userData = await userResponse.json()
-  
-        if (credentials?.username === userData.username && credentials?.password === userData.password) {
+        if (isSubscribed === true) {
+          const userResponse = await fetch(`http://localhost:3000/api/users/${id}`)
+          const userData = await userResponse.json()
+    
+          if (credentials?.username === userData.username && credentials?.password === userData.password) {
             return userData
-        } else {
+          } else {
             return null
+          }
+        } else {
+          const response = await fetch("http://localhost:3000/api/users", {
+            method: 'POST',
+            body: JSON.stringify(credentials),
+            headers: { "Content-Type": "application/json" }
+          })
+          const newUser = await res.json()
+    
+          if (response.ok && user) {
+            return newUser
+          }
+          return null
         }
       }
     }),
