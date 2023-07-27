@@ -26,8 +26,9 @@ function SignupPage() {
     <>
       <div className='container'>
         <div className='introduction'>
-          <h2>Sing up!</h2>
-          <p>By signing up in to your site we will just collect simple information about you, we won't share them with anyone and all your information will be crypted in our database!</p>
+          <h2>Sing up:</h2>
+          <p>By signing up in to our site we will just collect simple information about you, we won't share them with anyone and all your information will be crypted in our database.
+          </p>
         </div>
         <div className='form'>
           <input onChange={(e) => setName(e.target.value)} type="text" placeholder='Enter your name' />
@@ -36,10 +37,11 @@ function SignupPage() {
           <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter your password'/>
           <input onChange={(e) => setCheckpw(e.target.value)} type="password" placeholder='confirm your password' />
         </div>
-        <div className='signin-text'>Already have an account? <a href="http://localhost:3000/signin">sign in!</a></div>
+        <div className='signin-text'>Already have an account? <a href="http://localhost:3000/signin">sign in here</a></div>
         <button onClick={() => {
           if (password === checkpw) {
             newUser()
+            location.replace('/signin')
           }
           else{
             return
