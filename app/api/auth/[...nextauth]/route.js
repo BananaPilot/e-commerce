@@ -19,10 +19,10 @@ const handler = NextAuth({
     CredentialsProvider({
         name: "Credentials",
         credentials: {
-          username: {
-            label: "Username: ",
+          email: {
+            label: "E-mail: ",
             type: "text",
-            placeholder: "Enter you username"
+            placeholder: "Enter you e-mial"
           },
           password: {
             label: "Password: ",
@@ -37,7 +37,7 @@ const handler = NextAuth({
         const usersData = await usersResponse.json()
         
         usersData.forEach(element => {
-            if (element.username === credentials.username && element.password === credentials.password) {
+            if (element.email === credentials.email && element.password === credentials.password) {
                 id = element._id
                 isSubscribed = true
                 return
@@ -47,7 +47,7 @@ const handler = NextAuth({
           const userResponse = await fetch(`http://localhost:3000/api/users/${id}`)
           const userData = await userResponse.json()
     
-          if (credentials?.username === userData.username && credentials?.password === userData.password) {
+          if (credentials?.email === userData.email && credentials?.password === userData.password) {
             return userData
           } else {
             return null

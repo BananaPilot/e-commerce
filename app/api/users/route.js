@@ -11,12 +11,14 @@ export async function GET(){
 
 
 export async function POST(req, res){
-    const {username, password} = await req.json()
+    const {name, surname, email, password} = await req.json()
     try {
         await mongoConnectionDB()
-        const post = {username, password}
+        const post = {name, surname, email, password}
         const newUserSchema = new Users({
-            username: post.username,
+            name: post.name,
+            surname: post.surname,
+            email: post.email,
             password: post.password
         })
         const newUser = await newUserSchema.save()

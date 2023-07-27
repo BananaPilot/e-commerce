@@ -10,8 +10,8 @@ author: Fabio
     }
     (front-end){
         responsive
-        signin page
-        signup page
+        signin page//complete
+        signup page/complete
         page for every products
         comment based on products
     }

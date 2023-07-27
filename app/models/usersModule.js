@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const usersSchema = new Schema({
-    username: {
+    email: {
         type: String,
         required : true,
     },
@@ -9,6 +9,14 @@ const usersSchema = new Schema({
         type: String,
         required: true
     },
+    name:{
+        type: String,
+        required: true
+    },
+    surname:{
+        type: String,
+        required: true
+    }
 })
 
 const usersDB = mongoose.connection.useDb('users')

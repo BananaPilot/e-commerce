@@ -5,14 +5,14 @@ import React, { useState } from 'react'
 import {signIn} from 'next-auth/react'
 
 
-function SingInPage() {
+function SignInPage() {
 
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
     const submitCredentials = () => {
         signIn( 'credentials', {
-            username,
+            email,
             password,
             callbackUrl: "/"
         })
@@ -32,11 +32,6 @@ function SingInPage() {
 
   return (
     <>
-    <head>
-        <title>
-            | Sign in
-        </title>
-    </head>
         <div className='container'>
             <div className='header-section'>
                 <h2>Login:</h2>
@@ -45,7 +40,7 @@ function SingInPage() {
                 </p>
             </div>
             <div className='input-section'>
-                <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder='Enter you username' autoComplete='none'/>
+                <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Enter you e-mail' autoComplete='none'/>
                 <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter your password' autoComplete='none'/>
                 <div className='signup-text'>don't have an account <a href="http://localhost:3000/signup">sign up!</a></div>
                 <button onClick={() => {submitCredentials()}} className='signin-button'>Sign in!</button>
@@ -59,4 +54,4 @@ function SingInPage() {
   )
 }
 
-export default SingInPage
+export default SignInPage

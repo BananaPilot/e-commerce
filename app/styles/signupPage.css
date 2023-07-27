@@ -3,6 +3,15 @@ body{
     justify-content: center;
 }
 
+.introduction{
+    width: 40ch;
+}
+
+h2{
+    text-align: left;
+    padding-left: 50px;
+}
+
 .container{
     padding-top: 30px;
     align-items: center;
@@ -16,33 +25,20 @@ body{
     flex-direction: column;
 }
 
-.header-section{
-    width: 40ch;
-}
-
-.input-section{
+.form{
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
     width: 400px;
-    padding-block: 30px;
+    margin-bottom: 20px;
 }
+
 input{
     padding-inline: 10px;
     font-size: 20px;
     height: 30px;
     margin: 10px;
 }
-
-h2{
-    text-align: left;
-    padding-left: 50px;
-}
-
-.signup-text{
-    margin: 10px;
-}
-
-
 
 button{
     width: 400px;
@@ -51,35 +47,14 @@ button{
     font-size: 20px;
 }
 
-.division{
-    border-bottom: solid gray 1px;
-    width: 350px;
-    position: absolute;
-    left: 36%;
-    top: 65%;
-}
-
-.division-text{
-    width: fit-content;
-    height: fit-content;
-    bottom: 2.8%;
-    position: relative;
-    z-index: 1;
-    background-color: white;
-}
-
-.buttons-providers{
-    margin-top: 20px;
-}
-
-.signin-button{
-    margin-top: 40px;
-}
-
 a{
     color: gray;
 }
 
 a:hover{
     color: black;
+}
+
+.signin-text{
+    margin-bottom: 30px;
 }
