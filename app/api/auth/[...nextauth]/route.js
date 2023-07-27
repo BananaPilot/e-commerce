@@ -4,6 +4,9 @@ import GoogleProvider from "next-auth/providers/google"
 import GithubProvider from "next-auth/providers/github"
 
 const handler = NextAuth({
+  pages: {
+    signIn: '/signin'
+  },
   providers: [
     GithubProvider({
         clientId: process.env.NEXT_PUBLIC_GITHUB_ID,
@@ -49,22 +52,9 @@ const handler = NextAuth({
           } else {
             return null
           }
-        } else {
-          const response = await fetch("http://localhost:3000/api/users", {
-            method: 'POST',
-            body: JSON.stringify(credentials),
-            headers: { "Content-Type": "application/json" }
-          })
-          const newUser = await res.json()
-    
-          if (response.ok && user) {
-            return newUser
-          }
-          return null
         }
       }
     }),
   ],
 })
-
 export { handler as GET, handler as POST }
