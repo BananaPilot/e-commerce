@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import '@/app/styles/signupPage.css'
 
 function SignupPage() {
-
+  const [visible, setVisible] = useState("none")
   const [name, setName] = useState("")
   const [surname, setSurname] = useState("")
   const [email, setEmail] = useState("")
@@ -22,6 +22,8 @@ function SignupPage() {
     console.log(response);
   }
 
+
+
   return (
     <>
       <div className='container'>
@@ -29,6 +31,9 @@ function SignupPage() {
           <h2>Sing up:</h2>
           <p>By signing up in to our site we will just collect simple information about you, we won't share them with anyone and all your information will be crypted in our database.
           </p>
+        </div>
+        <div style={{display: visible}} className='alert'>
+          please make sure that inserted passwords are the same
         </div>
         <div className='form'>
           <input onChange={(e) => setName(e.target.value)} type="text" placeholder='Enter your name' />
@@ -41,9 +46,11 @@ function SignupPage() {
         <button onClick={() => {
           if (password === checkpw) {
             newUser()
+            setVisible("none")
             location.replace('/signin')
           }
           else{
+            setVisible("flex")
             return
           }
         }} > Sign up!</button>

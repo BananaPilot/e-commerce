@@ -4,7 +4,8 @@ body{
 }
 
 .container{
-    padding-top: 30px;
+    bottom: 25%;
+    position: absolute;
     align-items: center;
     text-align: center;
     border: solid gray 1px;
@@ -24,13 +25,13 @@ body{
     display: flex;
     flex-direction: column;
     width: 400px;
-    padding-block: 30px;
+    padding-top: 20px;
 }
 input{
     padding-inline: 10px;
     font-size: 20px;
     height: 30px;
-    margin: 10px;
+    margin-bottom: 30px;
 }
 
 h2{
@@ -39,10 +40,16 @@ h2{
 }
 
 .signup-text{
-    margin: 10px;
+    margin: 5px;
 }
 
-
+.alert{
+    color: white;
+    width: 400px;
+    padding: 5px;
+    background-color: rgba(255, 0, 0, 0.59);
+    border-radius: 10px;
+}
 
 button{
     width: 400px;
@@ -51,20 +58,23 @@ button{
     font-size: 20px;
 }
 
+.division-container{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px ;
+    text-align: center;
+}
+
 .division{
     border-bottom: solid gray 1px;
-    width: 350px;
-    position: absolute;
-    left: 36%;
-    top: 65%;
+    width: 160px;
+    height: 10px;
 }
 
 .division-text{
     width: fit-content;
     height: fit-content;
     bottom: 2.8%;
-    position: relative;
-    z-index: 1;
     background-color: white;
 }
 
@@ -73,7 +83,8 @@ button{
 }
 
 .signin-button{
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 a{

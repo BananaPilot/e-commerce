@@ -1,15 +1,26 @@
 "use client"
 
 import '@/app/styles/loginpage.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {signIn} from 'next-auth/react'
 
 
 function SignInPage() {
 
+    useEffect(() => {
+        checkURL()
+    },[])
+
+    const [visible, setVisible] = useState('none')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
+    const checkURL = () => {
+        if (window.location.search.includes("CredentialsSignin")) {
+            setVisible("flex")
+        }
+    }
+
     const submitCredentials = () => {
         signIn( 'credentials', {
             email,
@@ -39,14 +50,18 @@ function SignInPage() {
                     By logging in you will have a better expirience in our site, you will be able of placing orders saving items to your favourites and adding items to your cart. 
                 </p>
             </div>
+            <div style={{display: visible}} className='alert'> Please make sure that the inserted credentials are correct before trying again</div>
             <div className='input-section'>
-                <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Enter you e-mail' autoComplete='none'/>
+                <input onChange={(e) => setEmail(e.target.value)} type='text' placeholder='Enter you e-mail' autoComplete='none'/>
                 <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter your password' autoComplete='none'/>
                 <div className='signup-text'>don't have an account <a href="http://localhost:3000/signup">sign up!</a></div>
                 <button onClick={() => {submitCredentials()}} className='signin-button'>Sign in!</button>
             </div>
-            <div className='division-text'>or</div>
-            <div className='division'></div>
+            <div className='division-container'>
+                <div className='division'></div>
+                <div className='division-text'>or</div>
+                <div className='division'></div>
+            </div>
             <button onClick={() => {submitGoogle()}}>Sign in with Google</button>
             <button onClick={() => {submitGitHub()}}>Sign in with GitHub</button>
         </div>

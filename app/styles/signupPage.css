@@ -12,8 +12,17 @@ h2{
     padding-left: 50px;
 }
 
+.alert{
+    color: white;
+    width: 400px;
+    padding: 5px;
+    background-color: rgba(255, 0, 0, 0.59);
+    border-radius: 10px;
+}
+
 .container{
-    padding-top: 30px;
+    bottom: 25%;
+    position: absolute;
     align-items: center;
     text-align: center;
     border: solid gray 1px;
