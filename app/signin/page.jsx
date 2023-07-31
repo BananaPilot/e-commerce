@@ -1,6 +1,5 @@
 "use client"
 
-import '@/app/styles/loginpage.css'
 import React, { useEffect, useState } from 'react'
 import {signIn} from 'next-auth/react'
 
@@ -41,31 +40,36 @@ function SignInPage() {
         })
     }
 
+    const submit = (event) => {
+        if (event.key === 'Enter'){
+          submitCredentials()
+        }
+    }
+
   return (
-    <>
+    <div className='flex justify-center'>
         <div className='container'>
-            <div className='header-section'>
-                <h2>Login:</h2>
-                <p>
-                    By logging in you will have a better expirience in our site, you will be able of placing orders saving items to your favourites and adding items to your cart. 
-                </p>
+            <div className='flex justify-center text-center'>
+                <div style={{display: visible}} className='alert'>Please make sure that your credentials are right before trying again</div>
             </div>
-            <div style={{display: visible}} className='alert'> Please make sure that the inserted credentials are correct before trying again</div>
-            <div className='input-section'>
-                <input onChange={(e) => setEmail(e.target.value)} type='text' placeholder='Enter you e-mail' autoComplete='none'/>
-                <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter your password' autoComplete='none'/>
-                <div className='signup-text'>don't have an account <a href="http://localhost:3000/signup">sign up!</a></div>
-                <button onClick={() => {submitCredentials()}} className='signin-button'>Sign in!</button>
+            <div className='grid justify-center'>
+                <input onKeyPress={submit} onChange={(e) => setEmail(e.target.value)} className='input' type="email" placeholder='Enter your email'/>
+                <input onKeyPress={submit} onChange={(e) => setPassword(e.target.value)} className='input' type="password" placeholder='Password'/>
             </div>
-            <div className='division-container'>
-                <div className='division'></div>
-                <div className='division-text'>or</div>
-                <div className='division'></div>
+            <div className='flex justify-center'>
+                <button onClick={() => {submitCredentials()}} className='text-white bg-violet-700 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-violet-500'>Log in</button>
             </div>
-            <button onClick={() => {submitGoogle()}}>Sign in with Google</button>
-            <button onClick={() => {submitGitHub()}}>Sign in with GitHub</button>
+            <div className='border-b border-gray-400 m-5'></div>
+            <div className='flex justify-center'>
+                <button onClick={() => {submitGoogle()}} ><img className='w-8 mx-5' src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/></button>
+                <button onClick={() => {submitGitHub()}} ><img className='w-9 mx-5' src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"/></button>
+            </div>
+            <div className='border-b border-gray-400 m-5'></div>
+            <div className='flex justify-center'>
+                <button onClick={() => {location.replace('/signup')}} className='text-white bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500' >Create new account</button>
+            </div>
         </div>
-    </>
+    </div>
   )
 }
 
