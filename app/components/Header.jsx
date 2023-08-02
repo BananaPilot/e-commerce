@@ -7,8 +7,6 @@ function Header() {
 
   const {data: session, status} = useSession()
 
-  console.log(session, status);
-
   const alternative = () => {
     return <img src="https://www.svgrepo.com/show/164688/blank-user.svg" alt="" />
   }
