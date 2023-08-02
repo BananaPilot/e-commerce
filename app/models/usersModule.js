@@ -16,6 +16,11 @@ const usersSchema = new Schema({
     surname:{
         type: String,
         required: true
+    },
+    image: {
+        type : String,
+        required : true,
+        default: "https://www.svgrepo.com/show/164688/blank-user.svg"
     }
 })
 

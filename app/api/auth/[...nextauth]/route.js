@@ -5,7 +5,8 @@ import GithubProvider from "next-auth/providers/github"
 
 const handler = NextAuth({
   pages: {
-    signIn: '/signin'
+    signIn: '/signin',
+    signOut: '/signout',
   },
   providers: [
     GithubProvider({
