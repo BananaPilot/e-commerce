@@ -1,19 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
 const productsSchema = new Schema({
-    gender: {
+    title: {
         type: String,
         required : true,
     },
-    typeOfProduct:{
-        type: String,
-        required: true
-    },
-    type:{
-        type: String,
-        required: true
-    },
-    color:{
+    price:{
         type: String,
         required: true
     },
@@ -21,7 +13,15 @@ const productsSchema = new Schema({
         type: String,
         required: true
     },
-    imageURL:{
+    gender:{
+        type: String,
+        required: true
+    },
+    category:{
+        type: String,
+        required: true
+    },
+    image:{
         type: String,
         required: true
     }
