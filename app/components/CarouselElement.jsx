@@ -3,20 +3,6 @@
 import React, { useEffect, useState } from 'react'
 
 function CarouselElement() {
-
-  const [data, setData] = useState('')
-
-  const getData = async () => {
-    const respone = await fetch('/api/products')
-    const data = await respone.json()
-
-    setData(data)
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
-
   return (
     <>
     <div className='flex justify-center'>
