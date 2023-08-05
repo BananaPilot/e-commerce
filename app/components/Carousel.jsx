@@ -10,7 +10,7 @@ function Carousel() {
 
   return (
     <>
-    <div className='flex justify-center'>
+    <div className='hidden xl:flex justify-center 2xl:flex justify-center'>
       <button onClick={() => {
         if (translate <= 3324) {
           setTransalte(translate + variable) 
