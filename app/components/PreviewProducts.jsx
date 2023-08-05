@@ -7,7 +7,7 @@ function PreviewProducts({props}) {
   return (
     <>
       <div onClick={() => {
-        location.replace(`/api/products/${props._id}`)
+        location.replace(`/productsPage/${props._id}`)
       }} className='border rounded-xl w-96 p-3 bg-white drop-shadow-2xl'>
         <img draggable="false" src={props?.image}/>
         <div className='flex justify-between mt-3'>
