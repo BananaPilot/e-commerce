@@ -44,10 +44,10 @@ function Header() {
           }} className='text-white bg-violet-700 rounded-xl p-2 hover:bg-violet-500 mx-3'>Sign out</button>
           <button onClick={() => {
             location.replace('/favourites')
-          }} className='mx-3'><span className="material-symbols-outlined">&#xe87d;</span></button>
+          }} className='bg-violet-700 hover:bg-violet-500 rounded-full mx-1'><span className="text-white p-2 material-symbols-outlined">&#xe87d;</span></button>
           <button onClick={() => {
             location.replace('/cart')
-          }} className='mx-3'><span className="material-symbols-outlined">&#xe8cc;</span></button> 
+          }} className='bg-black hover:bg-zinc-900 rounded-full mx-1'><span className="text-white p-2 material-symbols-outlined">&#xe8cc;</span></button> 
         </div>
     </div>
   )

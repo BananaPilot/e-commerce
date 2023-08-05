@@ -9,8 +9,12 @@
 }
 
 body{
-    width: 100%;
     overflow-x: hidden;
+    
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 .carousel{
