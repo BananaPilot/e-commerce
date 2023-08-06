@@ -8,7 +8,7 @@ function PreviewProducts({props}) {
     <>
       <div onClick={() => {
         location.replace(`/productsPage/${props._id}`)
-      }} className='border rounded-xl w-96 p-3 bg-white drop-shadow-2xl'>
+      }} className='border rounded-xl w-96 p-3 bg-white drop-shadow-2xl hover:-translate-y-1 duration-300'>
         <img draggable="false" src={props?.image}/>
         <div className='flex justify-between mt-3'>
           <h3 className='font-semibold text-base'>{props?.title}</h3>

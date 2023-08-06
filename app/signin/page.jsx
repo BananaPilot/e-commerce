@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import {signIn} from 'next-auth/react'
 
-
 function SignInPage() {
 
     useEffect(() => {
@@ -47,6 +46,10 @@ function SignInPage() {
     }
 
   return (
+    <>
+    <head>
+        <title>Sign in</title>
+    </head>
     <div className='flex justify-center'>
         <div className='container'>
             <div className='flex justify-center text-center'>
@@ -70,6 +73,7 @@ function SignInPage() {
             </div>
         </div>
     </div>
+    </>
   )
 }
 

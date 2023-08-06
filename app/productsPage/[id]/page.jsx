@@ -27,13 +27,9 @@ function ProductsPage() {
 
 
   return (
-    <>
-      <div>
-        <div>
-          <img src={data.image}/>
-        </div>
-      </div>
-    </>
+    <div>
+      
+    </div>
   )
 }
 
