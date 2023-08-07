@@ -22,7 +22,7 @@ function ProductsContainer() {
         {
           data.length > 0
           ? (
-            <div className='mt-20 grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 cursor-pointer '>
+            <div className='mt-20 grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 cursor-pointer '>
               {data.map((element) => (
                 <PreviewProducts props={element}/>
               ))}

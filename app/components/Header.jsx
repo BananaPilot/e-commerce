@@ -21,32 +21,28 @@ function Header() {
         {
           status === "unauthenticated" || status === "loading"
           ? (
-              <div className='flex absolute right-0'>
+              <div className='flex absolute right-24'>
                 <button onClick={() => {
                   location.replace('/signin')
                 }} className='text-white bg-violet-700 rounded-xl p-2 hover:bg-violet-500 mx-3'>Sign in</button>
-                <button onClick={() => {
-                  location.replace('/favourites')
-                }} className='bg-violet-700 hover:bg-violet-500 rounded-full mx-1'><span className="text-white p-2 material-symbols-outlined">&#xe87d;</span></button>
-                <button onClick={() => {
-                  location.replace('/cart')
-                }} className='bg-black hover:bg-zinc-900 rounded-full mx-1'><span className="text-white p-2 material-symbols-outlined">&#xe8cc;</span></button> 
               </div>
             ) : (
-                <div className='flex absolute right-0'>
+                <div className='flex absolute right-24'>
                   <img onError={() => alternative()} className='w-10 rounded-full' src={session?.user.image} alt="" />
                   <button onClick={() => {
                     location.replace('/api/auth/signout')
                   }} className='text-white bg-violet-700 rounded-xl p-2 hover:bg-violet-500 mx-3'>Sign out</button>
-                  <button onClick={() => {
+                </div>
+              )
+        }
+        <div className='flex absolute right-2'>
+        <button onClick={() => {
                     location.replace('/favourites')
                   }} className='bg-violet-700 hover:bg-violet-500 rounded-full mx-1'><span className="text-white p-2 material-symbols-outlined">&#xe87d;</span></button>
                   <button onClick={() => {
                     location.replace('/cart')
                   }} className='bg-black hover:bg-zinc-900 rounded-full mx-1'><span className="text-white p-2 material-symbols-outlined">&#xe8cc;</span></button> 
-                </div>
-              )
-        }
+        </div>
       </div>
     </div>  
   )

@@ -47,9 +47,6 @@ function SignInPage() {
 
   return (
     <>
-    <head>
-        <title>Sign in</title>
-    </head>
     <div className='flex justify-center'>
         <div className='container'>
             <div className='flex justify-center text-center'>
@@ -62,12 +59,12 @@ function SignInPage() {
             <div className='flex justify-center'>
                 <button onClick={() => {submitCredentials()}} className='text-white bg-violet-700 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-violet-500'>Log in</button>
             </div>
-            <div className='border-b border-gray-400 m-5'></div>
+            <hr className='m-5 mx-10 border-t-gray-300 ' />
             <div className='flex justify-center'>
                 <button onClick={() => {submitGoogle()}} ><img className='w-8 mx-5' src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/></button>
                 <button onClick={() => {submitGitHub()}} ><img className='w-9 mx-5' src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"/></button>
             </div>
-            <div className='border-b border-gray-400 m-5'></div>
+            <hr className='m-5 mx-10 border-t-gray-300' />
             <div className='flex justify-center'>
                 <button onClick={() => {location.replace('/signup')}} className='text-white bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500' >Create new account</button>
             </div>

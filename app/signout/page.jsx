@@ -21,9 +21,6 @@ function SignOut() {
 
   return (
     <>
-    <head>
-      <title>Sign out</title>
-    </head>
     <div className='flex justify-center'>
       <div className='container text-center gap-10'>
         <h1 className='text-3xl font-bold'>Sign out</h1>

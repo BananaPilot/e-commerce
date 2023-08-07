@@ -10,20 +10,12 @@
 
 body{
     overflow-x: hidden;
-    
 }
 
 ::-webkit-scrollbar{
     display: none;
 }
 
-.carousel{
-    transition: 1s;
-}
-
-.w-container{
-    width: 396px;
-}
 
 .alert{
     @apply
@@ -37,7 +29,7 @@ body{
 
 .container{
     @apply
-    w-container
+    w-[396px]
     flex
     flex-col
     absolute

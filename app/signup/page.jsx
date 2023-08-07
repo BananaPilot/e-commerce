@@ -38,9 +38,6 @@ function SignupPage() {
 
   return (
     <>
-    <head>
-      <title>Sign up</title>
-    </head>
     <div className='flex justify-center'>
       <div className='container'>
         <div className='flex justify-center'>

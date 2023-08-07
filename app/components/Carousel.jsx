@@ -21,9 +21,9 @@ function Carousel() {
           console.log(translate);
         }} className='bg-white absolute left-0 z-10 h-[600px] w-24 hover:bg-gray-200'><span className="material-symbols-outlined">&#xe5e0;</span></button>
         {
-          <div style={{translate: `${translate}px`}} className='carousel flex justify-center w-full h-[600px] drop-shadow-2xl gap-10'>
+          <div style={{translate: `${translate}px`}} className='duration-1000 flex justify-center w-full h-[600px] drop-shadow-2xl gap-10 2xl:gap-12'>
             {data.map((element, index) => (
-              <img className='aspect-video' src={element.image} key={index}/>
+              <img draggable="false" className='aspect-video' src={element.image} key={index}/>
             ))}
           </div>
         }
