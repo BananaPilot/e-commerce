@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 
 function SignupPage() {
   const [visible, setVisible] = useState("none")
@@ -55,7 +56,7 @@ function SignupPage() {
           </div>
         </div>
         <div className='flex justify-center'>
-          <button className='text-white bg-violet-700 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-violet-500'  onClick={() => {
+          <button className='text-white bg-violet-700 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-violet-500' onClick={() => {
             if (password === checkpw) {
               newUser()
               setVisible("none")
@@ -67,9 +68,9 @@ function SignupPage() {
             }
           }} > Sign up</button>
         </div>
-        <div className='border-b border-gray-400 m-5'></div>
+        <hr className='m-5 mx-10 border-t-gray-300' />
         <div className='flex justify-center'>
-          <button onClick={() => {location.replace('/signin')}} className='text-white bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500'>Log in</button>
+          <Link href={'/signin'} className='text-white text-center p-3 bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500'>Log in</Link>
         </div>
       </div>
     </div>

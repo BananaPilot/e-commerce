@@ -1,15 +1,15 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 function PreviewProducts({props}) {
 
   return (
     <>
-      <div onClick={() => {
-        location.replace(`/productsPage/${props._id}`)
-      }} className='border rounded-xl w-80 p-3 bg-white drop-shadow-2xl hover:-translate-y-1 duration-300 2xl:w-96'>
-        <img draggable="false" src={props?.image}/>
+      <div className='border rounded-xl w-80 p-3 bg-white drop-shadow-2xl hover:-translate-y-1 duration-300 2xl:w-96'>
+        <Link href={`/productsPage/${props._id}`}>
+        <img loading='lazy' draggable="false" src={props?.image}/>
         <div className='flex justify-between mt-3'>
           <h3 className='font-semibold text-base'>{props?.title}</h3>
           <div className='flex gap-3 mr-4'>
@@ -18,8 +18,9 @@ function PreviewProducts({props}) {
           </div>
         </div>
         <div>
-          <p>{props?.price + " €"}</p>
+          <p>{props?.price} €</p>
         </div>
+        </Link>
       </div>
     </>
   )

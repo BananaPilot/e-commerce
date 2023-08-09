@@ -28,7 +28,6 @@ function ProductsPage() {
 
   return (
     <div>
-      
     </div>
   )
 }
