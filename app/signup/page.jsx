@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { routes } from '@/routes'
 
 function SignupPage() {
   const [visible, setVisible] = useState("none")
@@ -70,7 +71,7 @@ function SignupPage() {
         </div>
         <hr className='m-5 mx-10 border-t-gray-300' />
         <div className='flex justify-center'>
-          <Link href={'/signin'} className='text-white text-center p-3 bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500'>Log in</Link>
+          <Link href={routes.signin} className='text-white text-center p-3 bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500'>Log in</Link>
         </div>
       </div>
     </div>

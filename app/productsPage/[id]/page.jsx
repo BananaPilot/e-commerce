@@ -40,19 +40,19 @@ function ProductsPage() {
           </div>
           <div>
             <h3 className='font-semibold'>Sizes:</h3>
-            <div className='grid grid-cols-3 mt-3 gap-3'>
-              <button className='border w-20 h-10 hover:bg-gray-200'>38</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>39</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>40</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>41</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>42</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>43</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>44</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>45</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>46</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>47</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>48</button>
-              <button className='border w-20 h-10 hover:bg-gray-200'>49</button>
+            <div className='grid grid-cols-2 mt-3 gap-3'>
+              <button className='border w-40 h-10 hover:bg-gray-200'>38</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>39</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>40</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>41</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>42</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>43</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>44</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>45</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>46</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>47</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>48</button>
+              <button className='border w-40 h-10 hover:bg-gray-200'>49</button>
             </div>
             <div className='flex gap-4 flex-col mt-6'>
               <button className='text-white text-lg font-bold bg-violet-700 rounded-lg h-12 hover:bg-violet-500'>Add to Cart</button>

@@ -14,7 +14,7 @@ function RootLayout({ children }) {
         </head>
         <body>
             <Provider>
-                <main className='app'>
+                <main>
                     <Header/>
                     {children}
                 </main>

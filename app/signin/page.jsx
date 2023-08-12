@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import {signIn} from 'next-auth/react'
 import Link from 'next/link'
+import { routes } from '@/routes'
 
 function SignInPage() {
 
@@ -67,7 +68,7 @@ function SignInPage() {
             </div>
             <hr className='m-5 mx-10 border-t-gray-300' />
             <div className='flex justify-center'>
-                <Link href={`/signup`} className='text-center p-3 text-white bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500'>Create an Account</Link>
+                <Link href={routes.signup} className='text-center p-3 text-white bg-green-600 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-green-500'>Create an Account</Link>
             </div>
         </div>
     </div>
