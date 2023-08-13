@@ -5,7 +5,11 @@ import {signIn} from 'next-auth/react'
 import Link from 'next/link'
 import { routes } from '@/routes'
 
-function SignInPage() {
+
+function SignInPage(props) {
+
+    console.log(props);
+
 
     useEffect(() => {
         checkURL()
@@ -16,7 +20,7 @@ function SignInPage() {
     const [password, setPassword] = useState('')
     
     const checkURL = () => {
-        if (window.location.search.includes("CredentialsSignin")) {
+        if(props.searchParams.error === "CredentialsSignin"){
             setVisible("flex")
         }
     }

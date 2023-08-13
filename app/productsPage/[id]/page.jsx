@@ -2,16 +2,13 @@
 
 import React, { useEffect, useState } from 'react'
 
-function ProductsPage() {
+function ProductsPage(props) {
+
+  console.log(props);
 
   const [data, setData] = useState("")
 
-  let id;
-
-  const getID = () => {
-    let arr = location.href.split('/')
-    id = arr[4]
-  }
+  const id = props.params.id
 
   const getDataProduct = async () => {
     const response = await fetch(`/api/products/${id}`)
@@ -21,15 +18,13 @@ function ProductsPage() {
   } 
 
   useEffect(() => {
-    getID()
     getDataProduct()
   }, [])
 
-
   return (
     <>
-      <div className='mt-32 m-5 flex justify-between'>
-        <div className='w-[750px] ml-10'>
+      <div className='mt-32 m-5 flex justify-evenly'>
+        <div className='w-[600px] ml-10'>
           <img src={data.image}/>
         </div>
         <div className='mr-20'>

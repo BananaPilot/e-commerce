@@ -1,11 +1,12 @@
 import React from 'react'
 
+export const metadata = {
+  title: "Favourites"
+}
+
 function Fauvorites() {
   return (
     <>
-    <head>
-      <title>Favourites</title>
-    </head>
     <div>Fauvorites</div>
     </>
   )

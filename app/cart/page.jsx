@@ -1,11 +1,12 @@
 import React from 'react'
 
+export const metadata = {
+  title: "Cart"
+}
+
 function Cart() {
   return (
     <>
-    <head>
-      <title>Cart</title>
-    </head>
     <div>Cart</div>
     </>
   )
