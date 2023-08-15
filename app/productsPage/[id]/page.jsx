@@ -1,10 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import CookieHelper from '@/cookieHelper'
 
 function ProductsPage(props) {
-
-  console.log(props);
 
   const [data, setData] = useState("")
 
@@ -16,6 +15,10 @@ function ProductsPage(props) {
 
     setData(data)
   } 
+
+  const AddToCart = () => {
+    CookieHelper.addToCookie("cartItems", id)
+  }
 
   useEffect(() => {
     getDataProduct()
@@ -50,7 +53,9 @@ function ProductsPage(props) {
               <button className='border w-40 h-10 hover:bg-gray-200'>49</button>
             </div>
             <div className='flex gap-4 flex-col mt-6'>
-              <button className='text-white text-lg font-bold bg-violet-700 rounded-lg h-12 hover:bg-violet-500'>Add to Cart</button>
+              <button onClick={() => {
+                AddToCart()
+              }} className='text-white text-lg font-bold bg-violet-700 rounded-lg h-12 hover:bg-violet-500'>Add to Cart</button>
               <button className='text-white text-lg font-bold bg-black rounded-lg h-12 hover:bg-zinc-800'>Favourites</button>
             </div>
             <div className='mt-10'>

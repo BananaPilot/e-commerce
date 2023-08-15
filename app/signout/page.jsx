@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react'
 import { signOut } from 'next-auth/react'
 import { useSession } from 'next-auth/react'
+import CookieHelper from '@/cookieHelper'
 
 
 function SignOut() {
@@ -16,6 +17,7 @@ function SignOut() {
   }
 
   useEffect(() => {
+    CookieHelper.clearCookies()
     toHome()
   },[session])
 

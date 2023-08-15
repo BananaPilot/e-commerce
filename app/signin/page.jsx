@@ -8,10 +8,7 @@ import { routes } from '@/routes'
 
 function SignInPage(props) {
 
-    console.log(props);
-
-
-    useEffect(() => {
+     useEffect(() => {
         checkURL()
     },[])
 
