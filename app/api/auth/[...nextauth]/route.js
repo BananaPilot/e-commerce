@@ -34,7 +34,7 @@ const handler = NextAuth({
       async authorize (credentials) {
         let id;
         let isSubscribed = false
-        const usersResponse = await fetch('http://localhost:3000/api/users')
+        const usersResponse = await fetch(process.env.NEXT_PUBLIC_USER_API)
         const usersData = await usersResponse.json()
         
         usersData.forEach(element => {
@@ -45,7 +45,7 @@ const handler = NextAuth({
             }
         })
         if (isSubscribed === true) {
-          const userResponse = await fetch(`http://localhost:3000/api/users/${id}`)
+          const userResponse = await fetch(`${process.env.NEXT_PUBLIC_USER_API}/${id}`)
           const userData = await userResponse.json()
     
           if (credentials?.email === userData.email && credentials?.password === userData.password) {

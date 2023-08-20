@@ -15,7 +15,7 @@ function SignupPage() {
   const credentials = {name, surname, email, password}
 
   const newUser = async () =>{
-    const response = await fetch('http://localhost:3000/api/users', {
+    const response = await fetch(process.env.NEXT_PUBLIC_USER_API, {
       method: "POST",
       body: JSON.stringify(credentials),
       headers: {"Content-Type": "application/json"}
