@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bananapilot/cookiehelper": "^1.0.0",
     "autoprefixer": "10.4.14",
     "dotenv": "^16.3.1",
     "mongoose": "^7.4.0",

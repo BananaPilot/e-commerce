@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import CookieHelper from '@/cookieHelper'
+import CookieHelper from '@bananapilot/cookiehelper'
 
 function PreviewProducts({props}) {
 
