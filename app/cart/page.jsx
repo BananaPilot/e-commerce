@@ -1,6 +1,6 @@
 "use client";
 
-import CookieHelper from "@bananapilot/cookiehelper";
+import CookieHelper from "ez-cookie";
 import React, { useEffect, useState } from "react";
 
 export const metadata = {

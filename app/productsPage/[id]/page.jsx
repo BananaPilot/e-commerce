@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import CookieHelper from '@/cookieHelper'
+import CookieHelper from 'ez-cookie'
 
 function ProductsPage(props) {
 
