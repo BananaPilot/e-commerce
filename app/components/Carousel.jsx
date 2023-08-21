@@ -1,42 +1,57 @@
 "use client"
 
-import React, {useState } from 'react'
-let data = require('@/images.json')
+import React, {useEffect, useState } from 'react'
+import PreviewProducts from './PreviewProducts'
 
-function Carousel() {
+function Carousel({text_side,slice_min, slice_max, text}) {
 
-  const [translate, setTransalte] = useState(0)
-  let variable = 1108
+  const [data, setData] = useState([])
+  const [left, setLeft] = useState("none")
+  const [right, setRight] = useState("none")
+  const [side, setSide] = useState("start")
+
+
+  const getData = async () => {
+    const response = await fetch('/api/products')
+    const data = await response.json()
+    setData(data)
+  }
+
+  useEffect(() => {
+    getData()
+    if (text_side === "right") {
+      setRight("contents")
+      setLeft("none")
+      setSide("end")
+    }
+    if (text_side === "left") {
+      setLeft("contents")
+      setRight("none")
+      setSide("start")
+    }
+  }, [])
+
+
 
   return (
-    <>
-      <div className='hidden mt-32 xl:flex justify-center 2xl:flex justify-center'>
-        <button onClick={() => {
-          if (translate <= 3324) {
-            setTransalte(translate + variable) 
+    <div className='w-full mt-[400px] flex justify-center'>
+      <h1 style={{display: left}} className='text-white text-[5vw] font-bold'>{text}</h1>
+      <div style={{justifyContent: side}} className='w-[85%] p-10 overflow-scroll flex'>
+        <div className='flex gap-10' >
+          {
+            data.length > 0 ? 
+            (
+            data.slice(slice_min, slice_max).map((element, key) => (
+              <PreviewProducts key={key} props={element}/>
+            ))
+            )
+            :
+            (<></>)
           }
-          else{
-            setTransalte(-4432)
-          }
-          console.log(translate);
-        }} className='bg-white absolute left-0 z-10 h-[600px] w-24 hover:bg-gray-200'><span className="material-symbols-outlined">&#xe5e0;</span></button>
-        {
-          <div style={{translate: `${translate}px`}} className='duration-1000 flex justify-center w-full h-[600px] drop-shadow-2xl gap-10 2xl:gap-12'>
-            {data.map((element, index) => (
-              <img draggable="false" className='aspect-video' src={element.image} key={index}/>
-            ))}
-          </div>
-        }
-        <button onClick={() => {
-          if (translate >= -3324) {
-            setTransalte(translate - variable) 
-          }
-          else{
-            setTransalte(4432)
-          }
-        }} className='z-10 absolute right-0 bg-white h-[600px] w-24 hover:bg-gray-200'><span className="material-symbols-outlined">&#xe5e1;</span></button>
+        </div>
       </div>
-    </>
+      <h1 style={{display: right}} className='text-white text-[5vw] font-bold'>{text}</h1>
+    </div>
   )
 }
 
