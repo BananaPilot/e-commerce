@@ -8,7 +8,6 @@ function Carousel({text_side,slice_min, slice_max, text}) {
   const [data, setData] = useState([])
   const [left, setLeft] = useState("none")
   const [right, setRight] = useState("none")
-  const [side, setSide] = useState("start")
 
 
   const getData = async () => {
@@ -22,12 +21,10 @@ function Carousel({text_side,slice_min, slice_max, text}) {
     if (text_side === "right") {
       setRight("contents")
       setLeft("none")
-      setSide("end")
     }
     if (text_side === "left") {
       setLeft("contents")
       setRight("none")
-      setSide("start")
     }
   }, [])
 
@@ -36,7 +33,7 @@ function Carousel({text_side,slice_min, slice_max, text}) {
   return (
     <div className='w-full mt-[400px] flex justify-center'>
       <h1 style={{display: left}} className='text-white text-[5vw] font-bold'>{text}</h1>
-      <div style={{justifyContent: side}} className='w-[85%] p-10 overflow-scroll flex'>
+      <div className='w-[85%] p-10 overflow-scroll flex'>
         <div className='flex gap-10' >
           {
             data.length > 0 ? 

@@ -1,7 +1,7 @@
 "use client"
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import React,{useState} from 'react'
+import React from 'react'
 import Carousel from './components/Carousel'
 
 
@@ -25,7 +25,7 @@ function page() {
           <Carousel text_side={"right"} slice_min={10} slice_max={20} text={"BEST REVIEWS"}></Carousel>
         </ParallaxLayer>
         <ParallaxLayer style={{backgroundColor: "#231f20"}} offset={3}>
-          <Carousel text_side={"left"} slice_min={20} slice_max={30} text={"SALES"}></Carousel>
+          <Carousel text_side={"left"} slice_min={20} slice_max={30} text={"NEW PRODUCTS"}></Carousel>
         </ParallaxLayer>
       </Parallax>
     </div>
