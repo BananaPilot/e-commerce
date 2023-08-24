@@ -23,9 +23,7 @@ function Header() {
               </div>
             ) : (
                 <div className='flex absolute right-24'>
-                  <nav>
-                    <img className='w-10 rounded-full' src={session?.user.image}/>
-                  </nav>
+                  <img className='w-10 rounded-full' src={session?.user.image}/>
                   <Link className='text-white bg-violet-700 rounded-xl p-2 hover:bg-violet-500 mx-3' href={routes.sinout}>Sign out</Link>
                 </div>
               )
