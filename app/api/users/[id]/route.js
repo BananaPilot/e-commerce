@@ -9,4 +9,15 @@ export async function GET(req, res) {
   return NextResponse.json(user);
 }
 
-export async function UPDATE(req, res) {}
+export async function POST(req, res) {
+  await mongoConnectionDB()
+  await findUser(req, res)
+  console.log(req, res);
+}
+
+async function findUser(req, res) {
+  await mongoConnectionDB()
+  const id = res.params.id
+  const user = await Users.findById(id)
+  res.user = user
+}
