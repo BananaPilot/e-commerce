@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 #custom_apis
-app/api
+/app/api
