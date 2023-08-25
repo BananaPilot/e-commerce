@@ -6,18 +6,18 @@ import { routes } from '@/routes'
 
 function SignupPage() {
   const [visible, setVisible] = useState("none")
-  const [name, setName] = useState("")
-  const [surname, setSurname] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [checkpw, setCheckpw] = useState("")
-
-  const credentials = {name, surname, email, password}
+  const [user, setUser] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+    checkpw: ""
+  })
 
   const newUser = async () =>{
     const response = await fetch(process.env.NEXT_PUBLIC_USER_API, {
       method: "POST",
-      body: JSON.stringify(credentials),
+      body: JSON.stringify(user),
       headers: {"Content-Type": "application/json"}
     })
     console.log(response);
@@ -25,7 +25,7 @@ function SignupPage() {
 
   const submit = (event) => {
     if (event.key === 'Enter'){
-      if (password === checkpw) {
+      if (user.password === user.checkpw) {
         newUser()
         setVisible("none")
         location.replace('/signin')
@@ -37,6 +37,7 @@ function SignupPage() {
     }
   }
 
+  console.log(user);
 
   return (
     <>
@@ -49,16 +50,16 @@ function SignupPage() {
         </div>
         <div>
           <div className='grid justify-center'>
-            <input onKeyPress={submit} className='input' onChange={(e) => setName(e.target.value)} type="text" placeholder='Enter your name' />
-            <input onKeyPress={submit} className='input' onChange={(e) => setSurname(e.target.value)} type="text" placeholder='Enter your surname' />
-            <input onKeyPress={submit} className='input' onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Enter your e-mail' />
-            <input onKeyPress={submit} className='input' onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter your password'/>
-            <input onKeyPress={submit} className='input' onChange={(e) => setCheckpw(e.target.value)} type="password" placeholder='confirm your password' />
+            <input onKeyPress={submit} className='input' onChange={(e) => setUser({...user, name : e.target.value})} type="text" placeholder='Enter your name' />
+            <input onKeyPress={submit} className='input' onChange={(e) => setUser({...user, surname : e.target.value})} type="text" placeholder='Enter your surname' />
+            <input onKeyPress={submit} className='input' onChange={(e) => setUser({...user, email : e.target.value})} type="text" placeholder='Enter your e-mail' />
+            <input onKeyPress={submit} className='input' onChange={(e) => setUser({...user, password : e.target.value})} type="password" placeholder='Enter your password'/>
+            <input onKeyPress={submit} className='input' onChange={(e) => setUser({...user, checkpw : e.target.value})} type="password" placeholder='confirm your password' />
           </div>
         </div>
         <div className='flex justify-center'>
           <button className='text-white bg-violet-700 w-80 h-14 rounded-xl text-2xl font-bold hover:bg-violet-500' onClick={() => {
-            if (password === checkpw) {
+            if (user.password === user.checkpw) {
               newUser()
               setVisible("none")
               location.replace('/signin')

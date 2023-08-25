@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
 export const metadata = {
-  title: "Favourites"
-}
+  title: "Favourites",
+};
 
 function Fauvorites() {
   return (
     <>
-    <div>Fauvorites</div>
+      <div>Fauvorites</div>
     </>
-  )
+  );
 }
 
-export default Fauvorites
+export default Fauvorites;
