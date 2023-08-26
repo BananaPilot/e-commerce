@@ -23,7 +23,7 @@ const usersSchema = new Schema({
     default:
       "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png",
   },
-  cart:[]
+  cart: [],
 });
 
 const usersDB = mongoose.connection.useDb("users");

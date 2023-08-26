@@ -10,31 +10,31 @@ export async function GET(req, res) {
 }
 
 export async function PUT(req, res) {
-  await mongoConnectionDB()
-  await findUser(res)
-  const {name, surname, email, password, cart} = await req.json()
+  await mongoConnectionDB();
+  await findUser(res);
+  const { name, surname, email, password, cart } = await req.json();
   if (name != undefined) {
-    res.user.name = name
+    res.user.name = name;
   }
   if (surname != undefined) {
-      res.user.surname = surname
+    res.user.surname = surname;
   }
   if (cart != undefined) {
-      res.user.cart.push(cart)
+    res.user.cart.push(cart);
   }
   if (email != undefined) {
-      res.user.email = email
+    res.user.email = email;
   }
   if (password != null) {
-      res.user.password = password
+    res.user.password = password;
   }
-  const updatedUser = await res.user.save()
-  return NextResponse.json(updatedUser)
+  const updatedUser = await res.user.save();
+  return NextResponse.json(updatedUser);
 }
 
 async function findUser(res) {
-  await mongoConnectionDB()
-  const id = res.params.id
-  const user = await Users.findById(id)
-  res.user = user
+  await mongoConnectionDB();
+  const id = res.params.id;
+  const user = await Users.findById(id);
+  res.user = user;
 }

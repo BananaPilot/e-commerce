@@ -6,20 +6,20 @@ import CookieHelper from "ez-cookie";
 
 function ProductsPage(props) {
   const [data, setData] = useState("");
-  const [size, setSize] = useState("38")
-  const [user, setUser] = useState("")
+  const [size, setSize] = useState("38");
+  const [user, setUser] = useState("");
   const { data: session, status } = useSession();
 
   const getUser = async () => {
     const response = fetch(`/api/users?email=${session?.user.email}`, {
       method: "GET",
-      headers: {"Content-Type": "application/json"}
+      headers: { "Content-Type": "application/json" },
     })
-    .then(response => response.json())
-    .then(data => {
-      setUser(data)
-    })
-  }
+      .then((response) => response.json())
+      .then((data) => {
+        setUser(data);
+      });
+  };
 
   const getDataProduct = async () => {
     const response = await fetch(`/api/products/${props.params.id}`);
@@ -29,18 +29,21 @@ function ProductsPage(props) {
   };
 
   const AddToCart = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_USER_API}/${user[0]?._id}`, {
-      method: "PUT",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        cart: {data, size}
-      })
-    })
-  }
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_USER_API}/${user[0]?._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cart: { data, size },
+        }),
+      }
+    );
+  };
 
   useEffect(() => {
     getDataProduct();
-    getUser()
+    getUser();
   }, []);
 
   return (
@@ -58,42 +61,102 @@ function ProductsPage(props) {
           <div>
             <h3 className="font-semibold">Sizes:</h3>
             <div className="grid grid-cols-2 mt-3 gap-3">
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">38</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">39</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">40</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">41</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">42</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">43</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">44</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">45</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">46</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">47</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">48</button>
-              <button onClick={(e) => {
-                setSize(e.target.innerText)
-              }} className="border w-40 h-10 hover:bg-gray-200">49</button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                38
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                39
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                40
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                41
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                42
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                43
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                44
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                45
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                46
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                47
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                48
+              </button>
+              <button
+                onClick={(e) => {
+                  setSize(e.target.innerText);
+                }}
+                className="border w-40 h-10 hover:bg-gray-200"
+              >
+                49
+              </button>
             </div>
             <div className="flex gap-4 flex-col mt-6">
               <button
