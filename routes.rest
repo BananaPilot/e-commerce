@@ -1,7 +1,0 @@
-POST http://localhost:3000/api/users/64e8ac28cdca253ece445984
-
-Content-Type: application/javascript
-
-{
-	"name": "giovanni"
-}

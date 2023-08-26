@@ -5,6 +5,9 @@ import CookieHelper from "ez-cookie";
 
 function ProductsPage(props) {
   const [data, setData] = useState("");
+  const [size, setSize] = useState(null)
+
+  console.log(size);
 
   const id = props.params.id;
 
@@ -15,9 +18,15 @@ function ProductsPage(props) {
     setData(data);
   };
 
-  const AddToCart = () => {
-    CookieHelper.addToCookie("cartItems", id);
-  };
+  const AddToCart = async () => {
+    const response = await fetch('/api/users/64e9ec1d5ca1102f986ee8a9', {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        cart: {data, size}
+      })
+    })
+  }
 
   useEffect(() => {
     getDataProduct();
@@ -38,18 +47,42 @@ function ProductsPage(props) {
           <div>
             <h3 className="font-semibold">Sizes:</h3>
             <div className="grid grid-cols-2 mt-3 gap-3">
-              <button className="border w-40 h-10 hover:bg-gray-200">38</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">39</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">40</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">41</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">42</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">43</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">44</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">45</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">46</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">47</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">48</button>
-              <button className="border w-40 h-10 hover:bg-gray-200">49</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">38</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">39</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">40</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">41</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">42</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">43</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">44</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">45</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">46</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">47</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">48</button>
+              <button onClick={(e) => {
+                setSize(e.target.innerText)
+              }} className="border w-40 h-10 hover:bg-gray-200">49</button>
             </div>
             <div className="flex gap-4 flex-col mt-6">
               <button

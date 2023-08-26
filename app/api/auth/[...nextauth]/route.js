@@ -1,7 +1,5 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
-import GithubProvider from "next-auth/providers/github";
 
 const handler = NextAuth({
   pages: {
@@ -9,14 +7,6 @@ const handler = NextAuth({
     signOut: "/signout",
   },
   providers: [
-    GithubProvider({
-      clientId: process.env.NEXT_PUBLIC_GITHUB_ID,
-      clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_ID,
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_SECRET,
-    }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
