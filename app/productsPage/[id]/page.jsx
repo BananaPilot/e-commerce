@@ -1,25 +1,35 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 import CookieHelper from "ez-cookie";
 
 function ProductsPage(props) {
   const [data, setData] = useState("");
-  const [size, setSize] = useState(null)
+  const [size, setSize] = useState("38")
+  const [user, setUser] = useState("")
+  const { data: session, status } = useSession();
 
-  console.log(size);
-
-  const id = props.params.id;
+  const getUser = async () => {
+    const response = fetch(`/api/users?email=${session?.user.email}`, {
+      method: "GET",
+      headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.json())
+    .then(data => {
+      setUser(data)
+    })
+  }
 
   const getDataProduct = async () => {
-    const response = await fetch(`/api/products/${id}`);
+    const response = await fetch(`/api/products/${props.params.id}`);
     const data = await response.json();
 
     setData(data);
   };
 
   const AddToCart = async () => {
-    const response = await fetch('/api/users/64e9ec1d5ca1102f986ee8a9', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_USER_API}/${user[0]?._id}`, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -30,6 +40,7 @@ function ProductsPage(props) {
 
   useEffect(() => {
     getDataProduct();
+    getUser()
   }, []);
 
   return (

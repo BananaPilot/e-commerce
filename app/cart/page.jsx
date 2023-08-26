@@ -10,30 +10,6 @@ export const metadata = {
 function Cart() {
   const [data, setData] = useState("");
 
-  const getProducts = async () => {
-    const response = await fetch(
-      `/api/products/multipleProducts?ids=${CookieHelper.getCookie(
-        "cartItems"
-      )}`,
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    const data = await response.json();
-    setData(data);
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  let a = 0;
-
-  for (const key in data) {
-    a += +data[key].price;
-  }
-
   return (
     <>
       <div className="flex flex-col m-10 mt-32 gap-5">
@@ -62,7 +38,6 @@ function Cart() {
                   <option value="47">47</option>
                   <option value="48">48</option>
                 </select>
-                <input type="number" max={10} min={1} />
                 <button className="bg-black text-white rounded-xl p-2">
                   Delete
                 </button>

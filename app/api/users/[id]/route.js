@@ -13,7 +13,6 @@ export async function PUT(req, res) {
   await mongoConnectionDB()
   await findUser(res)
   const {name, surname, email, password, cart} = await req.json()
-  console.log(name, surname, email, password, cart);
   if (name != undefined) {
     res.user.name = name
   }
