@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import CookieHelper from "ez-cookie";
 
 function PreviewProducts({ props }) {
   return (
@@ -13,23 +12,6 @@ function PreviewProducts({ props }) {
         </Link>
         <div className="flex justify-between mt-3">
           <h3 className="font-semibold text-base">{props?.title}</h3>
-          <div className="flex gap-2">
-            <button className="bg-violet-700 hover:bg-violet-500 rounded-full">
-              <span className="text-white p-3 material-symbols-outlined">
-                &#xe87d;
-              </span>
-            </button>
-            <button
-              onClick={() => {
-                CookieHelper.addToCookie("cartItems", props._id);
-              }}
-              className="bg-black rounded-full hover:bg-zinc-900"
-            >
-              <span className="text-white p-3 material-symbols-outlined">
-                &#xe8cc;
-              </span>
-            </button>
-          </div>
         </div>
         <div>
           <p>{props?.price} €</p>

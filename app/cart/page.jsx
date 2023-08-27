@@ -1,7 +1,7 @@
 "use client";
 
-import CookieHelper from "ez-cookie";
 import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 export const metadata = {
   title: "Cart",
@@ -10,22 +10,52 @@ export const metadata = {
 function Cart() {
   const [data, setData] = useState("");
 
+  const { userData: session, status } = useSession();
+
+  console.log(data[0]?._id);
+
+  const deleteItem = async (props) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_USER_API}/${data[0]?._id}?productID=${props.data._id}`, {
+      method: "PATCH",
+      headers: {"Contetn-Type": "application/json"},
+    })
+    getUser()
+  }
+
+  const getUser = async () => {
+    const response = fetch(`${process.env.NEXT_PUBLIC_USER_API}?email=${session?.user.email}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
+  };
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      getUser();
+    }
+    setData("");
+  }, [status]);
+
   return (
     <>
       <div className="flex flex-col m-10 mt-32 gap-5">
-        {data.length > 0 ? (
-          data.map((element, key) => (
+        {data[0]?.cart?.length > 0 ? (
+          data[0]?.cart?.map((element, key) => (
             <div
               key={key}
               className="flex border-b border-t border-gray-200 p-2"
             >
               <div className="w-40">
-                <img src={element.image} />
+                <img src={element.data.image} />
               </div>
               <div className="ml-10 w-32 flex flex-col gap-3">
-                <h3 className="font-semibold">{element.title}</h3>
-                <p>{element.gender}</p>
-                <select>
+                <h3 className="font-semibold">{element.data.title}</h3>
+                <p>{element.data.gender}</p>
+                <select defaultValue={element.size}>
                   <option value="38">38</option>
                   <option value="39">39</option>
                   <option value="40">40</option>
@@ -38,17 +68,23 @@ function Cart() {
                   <option value="47">47</option>
                   <option value="48">48</option>
                 </select>
-                <button className="bg-black text-white rounded-xl p-2">
+                <button onClick={() => {
+                  deleteItem(element)
+                }} className="bg-black text-white rounded-xl p-2">
                   Delete
                 </button>
               </div>
               <div className="flex justify-end flex-grow">
-                <p className="font-semibold text-lg">{element.price} €</p>
+                <p className="font-semibold text-lg">{element.data.price} €</p>
               </div>
             </div>
           ))
         ) : (
-          <></>
+          <div className="flex justify-center mt-96 text-center">
+            <h1 className="w-[600px] font-bold text-6xl">
+              Nothing to see here, try adding something to you cart...
+            </h1>
+          </div>
         )}
         <div></div>
       </div>

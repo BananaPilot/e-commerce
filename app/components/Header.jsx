@@ -13,6 +13,7 @@ function Header() {
       <div className="flex p-3 bg-transparent">
         <Link className="w-32 h-10" href={routes.home}>
           <img
+            draggable="false"
             className="cursor-pointer"
             src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Spring_%28e-commerce_platform%29_logo.svg"
           />

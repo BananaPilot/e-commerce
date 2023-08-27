@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import CookieHelper from "ez-cookie";
 
 function ProductsPage(props) {
   const [data, setData] = useState("");
@@ -11,7 +10,7 @@ function ProductsPage(props) {
   const { data: session, status } = useSession();
 
   const getUser = async () => {
-    const response = fetch(`/api/users?email=${session?.user.email}`, {
+    const response = fetch(`${process.env.NEXT_PUBLIC_USER_API}/getOne/?email=${session?.user.email}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })

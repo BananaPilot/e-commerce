@@ -10,6 +10,7 @@ function page() {
       <Parallax pages={4}>
         <ParallaxLayer sticky={{ start: 0.1, end: 0.3 }}>
           <img
+            draggable="false"
             className="p-20 w-[1000px] block ml-auto mr-auto"
             src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Spring_%28e-commerce_platform%29_logo.svg"
           />

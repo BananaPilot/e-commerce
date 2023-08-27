@@ -32,9 +32,29 @@ export async function PUT(req, res) {
   return NextResponse.json(updatedUser);
 }
 
-async function findUser(res) {
+export async function PATCH(req, res) {
+  const IDToRemove = req.nextUrl.searchParams
+    .get("productID")
+  await findUser(res)
+  await mongoConnectionDB()
+  res.user.cart.filter((value, index) => {
+    if(value.data._id === IDToRemove){
+      if (index === 0) {
+        res.user.cart.splice(0,1)
+      }
+      else{
+        res.user.cart.splice(index,index)
+      }
+    }
+  })
+  const updatedUser = res.user.save()
+  return NextResponse.json(updatedUser)
+}
+
+export async function findUser(res) {
   await mongoConnectionDB();
   const id = res.params.id;
   const user = await Users.findById(id);
   res.user = user;
 }
+
