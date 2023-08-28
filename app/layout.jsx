@@ -18,7 +18,7 @@ function RootLayout({ children }) {
       <body>
         <Provider>
           <main>
-            <Header />
+            <Header/>
             {children}
           </main>
         </Provider>

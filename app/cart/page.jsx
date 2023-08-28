@@ -12,8 +12,6 @@ function Cart() {
 
   const { userData: session, status } = useSession();
 
-  console.log(data[0]?._id);
-
   const deleteItem = async (props) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_USER_API}/${data[0]?._id}?productID=${props.data._id}`, {
       method: "PATCH",
@@ -42,7 +40,7 @@ function Cart() {
 
   return (
     <>
-      <div className="flex flex-col m-10 mt-32 gap-5">
+      <div className="flex flex-col m-10 mt-5 gap-5">
         {data[0]?.cart?.length > 0 ? (
           data[0]?.cart?.map((element, key) => (
             <div
@@ -82,7 +80,7 @@ function Cart() {
         ) : (
           <div className="flex justify-center mt-96 text-center">
             <h1 className="w-[600px] font-bold text-6xl">
-              Nothing to see here, try adding something to you cart...
+              Nothing to see here, try adding something to your cart...
             </h1>
           </div>
         )}

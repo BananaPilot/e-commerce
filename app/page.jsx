@@ -29,7 +29,7 @@ function page() {
             slice_min={0}
             slice_max={10}
             text={"TOP SELLERS"}
-          ></Carousel>
+          />
         </ParallaxLayer>
         <ParallaxLayer style={{ backgroundColor: "#231f20" }} offset={2}>
           <Carousel
@@ -37,7 +37,7 @@ function page() {
             slice_min={10}
             slice_max={20}
             text={"BEST REVIEWS"}
-          ></Carousel>
+          />
         </ParallaxLayer>
         <ParallaxLayer style={{ backgroundColor: "#231f20" }} offset={3}>
           <Carousel
@@ -45,7 +45,7 @@ function page() {
             slice_min={20}
             slice_max={30}
             text={"NEW PRODUCTS"}
-          ></Carousel>
+          />
         </ParallaxLayer>
       </Parallax>
     </div>
