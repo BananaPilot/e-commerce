@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import NavBarContent from "./NavBarContent";
@@ -38,7 +38,7 @@ function Header() {
           />
         </Link>
         <div>
-          <nav className="absolute left-1/3 p-1">
+          <nav className="absolute left-1/3 xl:left-[45%] p-1">
             <ul className="flex gap-x-10">
               <Link
                 onMouseEnter={() => {

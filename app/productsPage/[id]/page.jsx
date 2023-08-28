@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 
 function ProductsPage(props) {
   const [data, setData] = useState("");
-  const [size, setSize] = useState("38");
+  const [size, setSize] = useState("");
   const [user, setUser] = useState("");
   const { data: session, status } = useSession();
 
@@ -28,6 +28,9 @@ function ProductsPage(props) {
   };
 
   const AddToCart = async () => {
+    if (size === "") {
+      setSize("38")
+    }
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_USER_API}/${user[0]?._id}`,
       {
@@ -156,6 +159,10 @@ function ProductsPage(props) {
               >
                 49
               </button>
+            </div>
+            <div className="my-5 flex justify-between">
+              <h2 className="text-lg font-semibold">Selected size:</h2>
+              <p className="font-normal">{size}</p>
             </div>
             <div className="flex gap-4 flex-col mt-6">
               <button
