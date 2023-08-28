@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export const metadata = {
   title: "Cart",
@@ -40,18 +41,20 @@ function Cart() {
 
   return (
     <>
-      <div className="flex flex-col m-10 mt-5 gap-5">
+      <div className="flex flex-col m-10 mt-32 gap-5">
         {data[0]?.cart?.length > 0 ? (
           data[0]?.cart?.map((element, key) => (
             <div
               key={key}
               className="flex border-b border-t border-gray-200 p-2"
             >
-              <div className="w-40">
+              <Link href={`/productsPage/${element.data._id}`} className="w-40">
                 <img src={element.data.image} />
-              </div>
+              </Link>
               <div className="ml-10 w-32 flex flex-col gap-3">
-                <h3 className="font-semibold">{element.data.title}</h3>
+                <Link href={`/productsPage/${element.data._id}`}className="font-semibold">
+                  {element.data.title}
+                </Link>
                 <p>{element.data.gender}</p>
                 <select defaultValue={element.size}>
                   <option value="38">38</option>

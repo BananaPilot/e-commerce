@@ -166,8 +166,12 @@ function ProductsPage(props) {
             </div>
             <div className="flex gap-4 flex-col mt-6">
               <button
-                onClick={() => {
+                onClick={(e) => {
                   AddToCart();
+                  e.target.innerText = "Added to cart"
+                  setTimeout(() => {
+                    e.target.innerText = "Add to cart"
+                  }, 2000)
                 }}
                 className="text-white text-lg font-bold bg-violet-700 rounded-lg h-12 hover:bg-violet-500"
               >
