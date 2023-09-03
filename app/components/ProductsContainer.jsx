@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PreviewProducts from "./PreviewProducts";
 
-function ProductsContainer({props}) {
-
+function ProductsContainer({ props }) {
   return (
     <>
       <div className="flex justify-center">
