@@ -28,6 +28,6 @@ const usersSchema = new Schema({
 
 const usersDB = mongoose.connection.useDb("users");
 
-const Users = usersDB.model.Products || usersDB.model("users", usersSchema);
+const Users = usersDB.models.Products || usersDB.model("users", usersSchema);
 
 export default Users;

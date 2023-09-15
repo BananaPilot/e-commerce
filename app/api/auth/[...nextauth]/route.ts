@@ -37,7 +37,7 @@ const handler = NextAuth({
             return;
           }
         });
-        if (isSubscribed === true) {
+        if (isSubscribed) {
           const userResponse = await fetch(
             `${process.env.NEXT_PUBLIC_USER_API}/${id}`
           );
