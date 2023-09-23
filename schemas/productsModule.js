@@ -30,6 +30,6 @@ const productsSchema = new Schema({
 const productsDB = mongoose.connection.useDb("products");
 
 const Products =
-  productsDB.models.Products || productsDB.model("products", productsSchema);
+  productsDB.model.Products || productsDB.model("products", productsSchema);
 
 export default Products;
