@@ -4,10 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Cart",
-};
-
 function Cart() {
   const [data, setData] = useState("");
   const [visible, setVisible] = useState("none");
