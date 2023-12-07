@@ -103,40 +103,6 @@ function Cart() {
           </div>
         )}
       </div>
-      {data[0]?.cart.length > 0 ? (
-        <div className="flex justify-center mt-24">
-          <div className="w-[400px] p-2 h-fit grid justify-center bg-white rounded-xl drop-shadow-2xl">
-            {data[0]?.cart?.map((element, key) => (
-              <div className="flex justify-between" key={key}>
-                <p>{element.data.title}</p>
-                <p>{element.data.price} €</p>
-              </div>
-            ))}
-            <div className="flex justify-between my-2">
-              <h3 className="font-semibold">Total:</h3>
-              <p>{total} €</p>
-            </div>
-            <button
-              onClick={(e) => {
-                setVisible("flex");
-              }}
-              className="text-white bg-violet-700 h-11 w-72 my-4 rounded-xl text-2xl font-bold hover:bg-violet-500"
-            >
-              Procede with checkout
-            </button>
-            <div
-              style={{
-                display: visible,
-              }}
-              className="text-white bg-red-500 w-64 text-center rounded-xl m-3 px-8;"
-            >
-              sorry but this feature is not available at the moment
-            </div>
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
     </>
   );
 }
