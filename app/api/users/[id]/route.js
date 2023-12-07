@@ -43,7 +43,7 @@ export async function PATCH(req, res) {
         res.user.cart.splice(0,1)
       }
       else{
-        res.user.cart.splice(index,index)
+        res.user.cart.splice(index, 1)
       }
     }
   })
